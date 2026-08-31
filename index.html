@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holi</title>
+</head>
+<body>
+    <p>Holi mundo - Adios Senati</p>
+    
+    <audio id="music" loop>
+        <source src="levels.mp3" type="audio/mpeg">
+    </audio>
+    <script>
+        function onmusic(){
+            const music = document.getElementById('music');
+            music.volume = .5;
+            music.play().then(() =>{
+                document.removeEventListener('click', onmusic);
+                }).catch(error => {
+                    console.log("el navegador no deja ps", error);
+                });
+        }
+        document.addEventListener('click', onmusic);
+    </script>
+</body>
+</html>
